@@ -1,0 +1,53 @@
+// the color that i'm going to use #242938
+body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;;
+    background-color: #242938;
+    overflow-y: hidden;
+}
+
+.flag {
+    width: 600px;
+    height: 300px;
+    display: flex;
+}
+
+.column {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+        to bottom, 
+        #f00 0 33.3%,
+        #000 33.3% 66.7%,
+        #fff 66.7% 100%
+    );
+
+    &:first-child {
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+    }
+
+    &:last-child {
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+
+    animation: animteupDown 1s linear infinite backwards alternate;
+    animation-delay: calc(var(--i) * 0.1s)
+}
+
+@keyframes animteupDown{
+    from { transform: translateY(15px) }
+    to { transform: translateY(-15px) }
+}
+
+// @for $i from 1 through 20 {
+//     .column:nth-child(#{$i}) {
+//         animation-delay: $i * 0.1s;
+//     }
+// }
+
+.flag:hover .column {
+    animation-play-state: paused;
+}
